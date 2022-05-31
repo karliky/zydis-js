@@ -9,7 +9,7 @@
 #include <nan.h>
 #include "sync.h"   // NOLINT(build/include)
 #include "async.h"  // NOLINT(build/include)
-
+#include "stdint.h"
 using v8::FunctionTemplate;
 using v8::Object;
 using v8::String;

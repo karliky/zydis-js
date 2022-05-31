@@ -9,6 +9,7 @@
 #include <nan.h>
 #include "pi_est.h"  // NOLINT(build/include)
 #include "sync.h"  // NOLINT(build/include)
+#include "stdint.h"
 
 #include <stdio.h>
 #include <inttypes.h>
