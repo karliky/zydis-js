@@ -1,1 +1,0 @@
-module.exports = require('./build/Release/Zydis.1.node');

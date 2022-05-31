@@ -1,28 +1,24 @@
 {
-  "name": "zydis-js",
+  "name": "zydis",
   "version": "1.0.0",
-  "description": "JavaScript bindings for zydis",
+  "description": "#### Create a new local git repository",
   "main": "index.js",
-  "directories": {
-    "example": "examples",
-    "man": "man",
-    "test": "tests"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "rm -rf dependencies/** && git clone git@github.com:zyantific/zycore-c.git dependencies/zycore && cmake-js compile"
+    "install": "cmake-js compile"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karliky/zydis-js.git"
+    "url": "git+https://github.com/zyantific/zydis-submodule-example.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/karliky/zydis-js/issues"
+    "url": "https://github.com/zyantific/zydis-submodule-example/issues"
   },
-  "homepage": "https://github.com/karliky/zydis-js#readme",
+  "homepage": "https://github.com/zyantific/zydis-submodule-example#readme",
   "dependencies": {
-    "nan": "^2.15.0"
+    "cmake-js": "^6.3.0",
+    "nan": "^2.16.0"
   }
 }
