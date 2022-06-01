@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "cmake-js compile"
+    "install": "cmake-js compile",
+    "build": "cmake-js compile"
   },
   "repository": {
     "type": "git",
