@@ -1,5 +1,6 @@
 #include <nan.h>
 #include <Zydis/Zydis.h>
+#include <iostream>
 
 NAN_METHOD(ZydisGetVersion) {
   ZyanU64 version = ZydisGetVersion();
@@ -8,12 +9,12 @@ NAN_METHOD(ZydisGetVersion) {
 
 NAN_METHOD(ZydisFeature_) {
   v8::Local<v8::Object> obj = Nan::New<v8::Object>();
-   obj->Set(Nan::New("ZYDIS_FEATURE_DECODER").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_DECODER));
-   obj->Set(Nan::New("ZYDIS_FEATURE_FORMATTER").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_FORMATTER));
-   obj->Set(Nan::New("ZYDIS_FEATURE_AVX512").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_AVX512));
-   obj->Set(Nan::New("ZYDIS_FEATURE_KNC").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_KNC));
-   obj->Set(Nan::New("ZYDIS_FEATURE_MAX_VALUE").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_MAX_VALUE));
-   obj->Set(Nan::New("ZYDIS_FEATURE_REQUIRED_BITS").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_REQUIRED_BITS));
+   Nan::Set(obj, Nan::New("ZYDIS_FEATURE_DECODER").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_DECODER));
+   Nan::Set(obj, Nan::New("ZYDIS_FEATURE_FORMATTER").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_FORMATTER));
+   Nan::Set(obj, Nan::New("ZYDIS_FEATURE_AVX512").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_AVX512));
+   Nan::Set(obj, Nan::New("ZYDIS_FEATURE_KNC").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_KNC));
+   Nan::Set(obj, Nan::New("ZYDIS_FEATURE_MAX_VALUE").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_MAX_VALUE));
+   Nan::Set(obj, Nan::New("ZYDIS_FEATURE_REQUIRED_BITS").ToLocalChecked(), Nan::New<v8::Integer>(ZYDIS_FEATURE_REQUIRED_BITS));
   info.GetReturnValue().Set(obj);
 }
 
@@ -23,9 +24,9 @@ NAN_METHOD(ZydisIsFeatureEnabled) {
 }
 
 NAN_MODULE_INIT(Init) {
-  NAN_EXPORT(target, ZydisGetVersion);
-  NAN_EXPORT(target, ZydisIsFeatureEnabled);
-  NAN_EXPORT(target, ZydisFeature_);
+  Nan::Set(target , Nan::New("ZydisGetVersion").ToLocalChecked() , Nan::GetFunction(Nan::New<v8::FunctionTemplate>(ZydisGetVersion)).ToLocalChecked());
+  Nan::Set(target , Nan::New("ZydisIsFeatureEnabled").ToLocalChecked() , Nan::GetFunction(Nan::New<v8::FunctionTemplate>(ZydisIsFeatureEnabled)).ToLocalChecked());
+  Nan::Set(target , Nan::New("ZydisFeature_").ToLocalChecked() , Nan::GetFunction(Nan::New<v8::FunctionTemplate>(ZydisFeature_)).ToLocalChecked());
 }
 
 NODE_MODULE(ZydisJS, Init)
