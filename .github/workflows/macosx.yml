@@ -33,4 +33,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: node -e "console.log(require('./build/Release/zydis-js.node').getVersion().toString(16))"
+      - run: node -e "console.log(require('./build/Release/zydis-js.node').ZydisGetVersion().toString(16))"
