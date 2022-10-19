@@ -6,6 +6,11 @@ set (CMAKE_CXX_STANDARD 17)
 # Disable build of tools and examples.
 option(ZYDIS_BUILD_TOOLS "" OFF)
 option(ZYDIS_BUILD_EXAMPLES "" OFF)
+
+option(ZYDIS_BUILD_DOXYGEN
+    "Build doxygen documentation (requires Doxygen)"
+    OFF)
+
 add_subdirectory("deps/zydis")
 include_directories(${CMAKE_JS_INC} ./node_modules/nan/)
 # Add our project executable
